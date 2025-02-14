@@ -11,41 +11,41 @@
 </head>
 
 <body>
-    {{-- Hero --}}
-    <div class="min-h-screen bg-[#5a56e9] rounded-b-xl p-4 " style="border-radius: 0 0 100px 100px">
-        <div class="navbar flex flex-row justify-between items-center p-3">
-            <div class="logo text-white flex flex-col justify-center items-center">
-                <img src="{{ asset('open-book.png') }}" alt="book" class="w-8 h-8">
-                <h1 class="text-md font-bold">Perpustakaan</h1>
-            </div>
-            <div class="menu flex flex-row gap-10 text-white font-medium">
-                <a href="/">Home</a>
-                <a href="/">About us</a>
-                <a href="/">Contact</a>
-
-            </div>
-            <div class="">
-                @if (Route::has('login'))
-                    @auth
-                        <a href="{{ route('dashboard') }}" class="text-white me-5 font-semibold">Dashboard</a>
-                    @endauth
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                            class="rounded-md px-5 py-2 border-2 border-white border-solid font-medium text-white">Register</a>
-                    @endif
-
-                @endif
-            </div>
+    {{-- Navbar --}}
+    <div class="navbar bg-[#5a56e9] sticky top-0 flex flex-row justify-between items-center p-3">
+        <div class="logo text-white flex flex-col justify-center items-center">
+            <img src="{{ asset('open-book.png') }}" alt="book" class="w-8 h-8">
+            <h1 class="text-md font-bold">Perpustakaan</h1>
         </div>
+        <div class="menu flex flex-row gap-10 text-white font-medium">
+            <a href="/">Home</a>
+            <a href="/">About us</a>
+            <a href="/">Contact</a>
 
+        </div>
+        <div class="flex flex-row justify-center items-center gap-3 ">
+            @if (Route::has('login'))
+                @auth
+                    <a href="{{ route('dashboard') }}" class="text-white font-semibold">Dashboard</a>
+                @endauth
+                <a href="{{ route('login') }}"
+                    class="rounded-md px-5 py-2 bg-white border-2 border-white text-[#0057ff] font-medium">Login</a>
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}"
+                        class="rounded-md px-5 py-2 border-2 border-white border-solid font-medium text-white">Register</a>
+                @endif
+            @endif
+        </div>
+    </div>
+    {{-- Hero --}}
+    <div class="h-[32rem] bg-[#5a56e9] rounded-b-xl p-4 " style="border-radius: 0 0 100px 100px" style="">
         <div class="flex flex-col justify-center items-center gap-5 mt-20">
             <h1 class="text-6xl  text-white font-bold text-center">Expand your mind reading a <br>reading a book</h1>
             <p class="text-xl text-center font-light text-white">"The more that you read, the more things you will know.
                 The more that <br>you learn, the more place you'll go.</p>
             <div class="flex flex-row justify-center items-center gap-3">
-                <a href="{{ route('login') }}"
-                    class="rounded-md px-5 py-2 bg-white border-2 border-white text-[#0057ff] font-medium">Login</a>
-                <a href=""
+
+                <a href="{{ route('user.borrow') }}"
                     class="rounded-md px-5 py-2  border-2 border-white border-solid text-white font-medium">Borrow
                     Book</a>
 
